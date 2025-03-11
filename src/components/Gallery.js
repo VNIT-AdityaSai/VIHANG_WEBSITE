@@ -33,21 +33,20 @@ const Gallery = () => {
       </div>
 
       {/* Continuous Scrolling Event Pictures */}
-      <div ref={scrollRef} className="overflow-hidden whitespace-nowrap flex space-x-0p-4">
+      {/* <div ref={scrollRef} className="overflow-hidden whitespace-nowrap flex space-x-0p-4">
         <div className="flex space-x-4 animate-scroll">
           <img src="/pictures/images.jpeg" alt="Event 1" className="w-64 h-40 rounded-lg shadow-md" />
           <img src="/pictures/Commitee.png" alt="Event 2" className="w-64 h-40 rounded-lg shadow-md" />
           <img src="/event3.jpg" alt="Event 3" className="w-64 h-40 rounded-lg shadow-md" />
           <img src="/event4.jpg" alt="Event 4" className="w-64 h-40 rounded-lg shadow-md" />
           <img src="/event5.jpg" alt="Event 5" className="w-64 h-40 rounded-lg shadow-md" />
-          {/* Duplicate images for smooth looping */}
           <img src="/pictures/images.jpeg" alt="Event 1" className="w-64 h-40 rounded-lg shadow-md" />
           <img src="/event2.jpg" alt="Event 2" className="w-64 h-40 rounded-lg shadow-md" />
           <img src="/event3.jpg" alt="Event 3" className="w-64 h-40 rounded-lg shadow-md" />
           <img src="/event4.jpg" alt="Event 4" className="w-64 h-40 rounded-lg shadow-md" />
           <img src="/event5.jpg" alt="Event 5" className="w-64 h-40 rounded-lg shadow-md" />
-        </div>
-      </div>
+        </div> */}
+      {/* </div> */}
     </section>
   );
 };
