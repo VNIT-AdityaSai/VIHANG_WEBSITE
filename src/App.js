@@ -6,7 +6,8 @@ import Club from "./components/pages/club";
 
 const App = () => {
   return (
-    <Router>
+    <div className="bg-gray-900">
+      <Router>
         <Routes>
           <Route
             path="/"
@@ -18,7 +19,8 @@ const App = () => {
           <Route path="/schedule" element={<Schedule />} />
           <Route path="/clubs" element={<Club />} />
         </Routes>
-    </Router>
+      </Router>
+    </div>
   );
 };
 
