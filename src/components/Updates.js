@@ -9,13 +9,13 @@ const Updates = () => {
     { rank: 5, club: "Kinetic Kairos", gold: 1, silver: 1, bronze: 1, total: 3 }
   ];
 
-  const scoreboard = [
-    { game: "Football", match: "Terra Titans vs Fiery Phoenix", result: "Terra Titans won 2:1" },
-    { game: "Basketball", match: "Verdant Mavericks vs Thunder Strikers", result: "Verdant Mavericks won 3:2" },
-    { game: "Volleyball", match: "Kinetic Kairos vs Terra Titans", result: "Kinetic Kairos won 1:0" },
-    { game: "Badminton", match: "Fiery Phoenix vs Verdant Mavericks", result: "Fiery Phoenix won 2:0" },
-    { game: "Table Tennis", match: "Thunder Strikers vs Kinetic Kairos", result: "Thunder Strikers won 3:1" }
-  ];
+  // const scoreboard = [
+  //   { game: "Football", match: "Terra Titans vs Fiery Phoenix", result: "Terra Titans won 2:1" },
+  //   { game: "Basketball", match: "Verdant Mavericks vs Thunder Strikers", result: "Verdant Mavericks won 3:2" },
+  //   { game: "Volleyball", match: "Kinetic Kairos vs Terra Titans", result: "Kinetic Kairos won 1:0" },
+  //   { game: "Badminton", match: "Fiery Phoenix vs Verdant Mavericks", result: "Fiery Phoenix won 2:0" },
+  //   { game: "Table Tennis", match: "Thunder Strikers vs Kinetic Kairos", result: "Thunder Strikers won 3:1" }
+  // ];
 
   const medalWinners = [
     { sport: 'Basketball', bronze: 'Team C', gold: 'Team A', silver: 'Team B' },
