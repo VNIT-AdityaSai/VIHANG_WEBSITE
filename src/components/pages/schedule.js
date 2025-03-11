@@ -5,8 +5,8 @@ const Schedule = () => {
     document.title = "Schedules | Vihang 2025";
     return (
         <>
-            <Header />
-            Schedule Page
+                <Header />
+            
         </>
     )
 }
