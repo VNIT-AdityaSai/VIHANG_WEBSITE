@@ -6,7 +6,7 @@ import Club from "./components/pages/club";
 
 const App = () => {
   return (
-    <div className="bg-gray-900">
+    <div className="bg-gray-900 w-full">
       <Router>
         <Routes>
           <Route

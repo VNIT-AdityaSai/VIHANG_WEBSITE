@@ -47,3 +47,28 @@ header, footer {
 .inline-block {
   display: inline-block;
 }
+
+@keyframes marquee {
+  0% {
+    transform: translateX(120%);
+  }
+  100% {
+    transform: translateX(-120%);
+  }
+}
+
+
+@keyframes marquee2 {
+  0% {
+    transform: translateX(120%);
+  }
+  100% {
+    transform: translateX(-120%);
+  }
+}
+
+@media (max-width: 768px) {
+  .animate-marquee {
+    animation: marquee 5s linear infinite;
+  }
+}
