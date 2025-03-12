@@ -4,9 +4,10 @@ const ClubContent = ({ club }) => {
     return (
         <div className="grid grid-rows-1 md:grid-cols-2 lg:my-20 gap-4">
             <div className="flex justify-center items-center">
-                <img
+                {club?.url && <img
                     src={club.url}
                     className="rounded-lg h-100 lg:h-150 max-w-full" />
+                }
             </div>
             <div className="grid grid-rows-3 md:grid-cols-2 gap-4">
                 <div className="flex flex-col items-center">

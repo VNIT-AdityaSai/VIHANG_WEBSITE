@@ -13,7 +13,43 @@ const sampleData = [
     {
         date: "2025-03-17",
         events: ["Day 3", "Basketball"]
-    }
+    },
+    {
+        date: "2025-01-01",
+        events: ["Day 1", "Football"]
+    },
+    {
+        date: "2025-02-14",
+        events: ["Day 2", "Cricket"]
+    },
+    {
+        date: "2025-03-17",
+        events: ["Day 3", "Basketball"]
+    },
+    {
+        date: "2025-01-01",
+        events: ["Day 1", "Football"]
+    },
+    {
+        date: "2025-02-14",
+        events: ["Day 2", "Cricket"]
+    },
+    {
+        date: "2025-03-17",
+        events: ["Day 3", "Basketball"]
+    },
+    {
+        date: "2025-01-01",
+        events: ["Day 1", "Football"]
+    },
+    {
+        date: "2025-02-14",
+        events: ["Day 2", "Cricket"]
+    },
+    {
+        date: "2025-03-17",
+        events: ["Day 3", "Basketball"]
+    },
 ];
 
 const Schedule = () => {

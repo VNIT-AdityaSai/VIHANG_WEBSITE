@@ -1,5 +1,6 @@
 html, body, #root {
-  height: 100%;
+  height: max-content;
+  /* background-color: #1a1a1a; */
 }
 
 :root {
@@ -9,9 +10,10 @@ html, body, #root {
 
   /* height: 100%; */
 
-  color-scheme: light dark;
+  color-scheme: dark light;
   color: rgba(255, 255, 255, 0.87);
-  /* background-color: rgb(51, 59, 124); */
+  /* background-color: oklch(21% 0.006 285.885); */
+  background-color: rgb(16 24 40);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -62,8 +64,8 @@ button:focus-visible {
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    color: rgba(255, 255, 255, 0.87);
+    background-color: oklch(21% 0.006 285.885);
   }
   a:hover {
     color: #747bff;

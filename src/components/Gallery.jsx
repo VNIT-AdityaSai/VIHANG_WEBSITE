@@ -2,9 +2,9 @@ import React from "react";
 
 const Gallery = () => {
   return (
-    <section >
+    <section>
       {/* Theme Image Section */}
-      <div className="w-full">
+      <div className="w-full h-auto">
         <img 
           src="/pictures/Theme.png"
           alt="Event Theme"
