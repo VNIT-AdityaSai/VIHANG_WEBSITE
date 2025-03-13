@@ -1,13 +1,18 @@
 import mongoose from "mongoose";
+import dotenv from "dotenv";
 import { Teams, Events, Points } from "./schemas.js";
 
 const EVENT_LIST = [
     
 ]
 
-async function preloadData() {
+dotenv.config({
+    path: '.env.local'
+});
 
-    await mongoose.connect('mongodb://localhost:27017/vihang');
+async function preloadData() {
+    let connection_string = `mongodb+srv://mt23mcs002:`+ process.env.DB_PASSWORD + `@cluster0.r5tkr.mongodb.net/vihang?retryWrites=true&w=majority&appName=Cluster0`
+    await mongoose.connect(connection_string);
     console.log('Connected to MongoDB');
 
     try {
