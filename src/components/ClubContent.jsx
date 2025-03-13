@@ -33,15 +33,15 @@ const ClubContent = ({ club }) => {
                 <div className="col-span-2 grid grid-rows-1 grid-cols-3 gap-4 my-10">
                     <div className="flex flex-col items-center">
                         <h3 className="text-lg">Silver</h3>
-                        <h5 className="text-md">5</h5>
+                        <h5 className="text-md">{club.silver}</h5>
                     </div>
                     <div className="flex flex-col items-center">
                         <h3 className="text-lg">Gold</h3>
-                        <h5 className="text-md">5</h5>
+                        <h5 className="text-md">{club.gold}</h5>
                     </div>
                     <div className="flex flex-col items-center">
                         <h3 className="text-lg">Bronze</h3>
-                        <h5 className="text-md">5</h5>
+                        <h5 className="text-md">{club.bronze}</h5>
                     </div>
                 </div>
             </div>

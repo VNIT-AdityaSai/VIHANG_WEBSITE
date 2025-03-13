@@ -1,13 +1,45 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+
+const URL = "http://localhost:3000/summary"
 
 const Updates = () => {
-  const pointsTable = [
-    { rank: 1, club: "Terra Titans", gold: 3, silver: 2, bronze: 1, total: 6 },
-    { rank: 2, club: "Fiery Phoenix", gold: 2, silver: 3, bronze: 2, total: 7 },
-    { rank: 3, club: "Verdant Mavericks", gold: 1, silver: 2, bronze: 3, total: 6 },
-    { rank: 4, club: "Thunder Strikers", gold: 2, silver: 1, bronze: 2, total: 5 },
-    { rank: 5, club: "Kinetic Kairos", gold: 1, silver: 1, bronze: 1, total: 3 }
+
+  const pointsTablev1 = [
+    { teamId: 1, club: "Terra Titans", gold: 0, silver: 0, bronze: 0, total: 0 },
+    { teamId: 2, club: "Fiery Phoenix", gold: 0, silver: 0, bronze: 0, total: 0 },
+    { teamId: 3, club: "Verdant Mavericks", gold: 0, silver: 0, bronze: 0, total: 0 },
+    { teamId: 4, club: "Thunder Strikers", gold: 0, silver: 0, bronze: 0, total: 0 },
+    { teamId: 5, club: "Kinetic Kairos", gold: 0, silver: 0, bronze: 0, total: 0 }
   ];
+
+  const [pointsTable, setPointsTable] = useState(pointsTablev1);
+
+  useEffect(() => {
+    async function fetchData() {
+      const pointsData = await fetch(URL);
+      const result = await pointsData.json();
+      // console.log(result)
+
+      if (result && result.length > 0) {
+
+        const newPointsTable = pointsTablev1.map((team) => {
+          const club = result.find((item) => parseInt(item.teamId) === team.teamId);
+          if (club === undefined) {
+            return team;
+          }
+          const { teamId, gold, silver, bronze, total } = club;
+          return { ...team, gold, silver, bronze, total };
+        })
+
+        newPointsTable.sort((a, b) => b.total - a.total);
+
+        console.log("points", newPointsTable)
+        setPointsTable(newPointsTable);
+      }
+    }
+    fetchData();
+  }, [])
+
 
   const scoreboard = [
     { game: "Football", match: "Terra Titans vs Fiery Phoenix", result: "Terra Titans won 2:1" },
@@ -31,15 +63,15 @@ const Updates = () => {
           <table className="w-full text-lg border-collapse border border-gray-600">
             <thead>
               <tr className="bg-gray-700">
-                {['Rank', 'Club', 'Gold', 'Silver', 'Bronze', 'Total'].map((header) => (
+                {['Rank', 'Club No', 'Club', 'Gold', 'Silver', 'Bronze', 'Total'].map((header) => (
                   <th key={header} className="border border-gray-600 p-2">{header}</th>
                 ))}
               </tr>
             </thead>
             <tbody>
-              {pointsTable.map(({ rank, club, gold, silver, bronze, total }) => (
+              {pointsTable.map(({ teamId, club, gold, silver, bronze, total }, idx) => (
                 <tr key={club}>
-                  {[rank, club, gold, silver, bronze, total].map((value, index) => (
+                  {[(idx + 1), teamId, club, gold, silver, bronze, total].map((value, index) => (
                     <td key={index} className="border border-gray-600 p-2">{value}</td>
                   ))}
                 </tr>
