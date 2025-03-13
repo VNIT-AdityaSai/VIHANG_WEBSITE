@@ -1,10 +1,32 @@
 import express from 'express';
 import { Points } from './schemas.js';
+import { authenticateJWT } from './login.js';
+import { Teams, Events } from './schemas.js';
 
-const pointRouter = express.Router();
+const allRoutes = express.Router();
+
+// Get list of teams
+allRoutes.get('/teams', async (req, res) => {
+    try {
+        const teams = await Teams.find({});
+        res.status(200).send(teams);
+    } catch (error) {
+        res.status(500).send(error);
+    }
+});
+
+// Get list of events
+allRoutes.get('/events', async (req, res) => {
+    try {
+        const events = await Events.find({});
+        res.status(200).send(events);
+    } catch (error) {
+        res.status(500).send(error);
+    }
+});
 
 // Create a new point entry
-pointRouter.post('/points', async (req, res) => {
+allRoutes.post('/points', authenticateJWT, async (req, res) => {
     try {
         const point = new Points(req.body);
         await point.save();
@@ -15,7 +37,7 @@ pointRouter.post('/points', async (req, res) => {
 });
 
 // Read all points
-pointRouter.get('/points', async (req, res) => {
+allRoutes.get('/points', authenticateJWT, async (req, res) => {
     try {
         const points = await Points.find({});
         res.status(200).send(points);
@@ -25,7 +47,7 @@ pointRouter.get('/points', async (req, res) => {
 });
 
 // Read a single point entry by ID
-pointRouter.get('/points/:id', async (req, res) => {
+allRoutes.get('/points/:id', authenticateJWT, async (req, res) => {
     try {
         const point = await Points.findById(req.params.id);
         if (!point) {
@@ -38,7 +60,7 @@ pointRouter.get('/points/:id', async (req, res) => {
 });
 
 // Update a point entry by ID
-pointRouter.patch('/points/:id', async (req, res) => {
+allRoutes.patch('/points/:id', authenticateJWT, async (req, res) => {
     const updates = Object.keys(req.body);
     const allowedUpdates = ['eventId', 'teamId', 'medal', 'points'];
     const isValidOperation = updates.every((update) => allowedUpdates.includes(update));
@@ -63,7 +85,7 @@ pointRouter.patch('/points/:id', async (req, res) => {
 });
 
 // Get medal counts and total points for each team
-pointRouter.get('/summary', async (req, res) => {
+allRoutes.get('/summary', async (req, res) => {
     try {
         const summary = await Points.aggregate([
             {
@@ -114,7 +136,7 @@ pointRouter.get('/summary', async (req, res) => {
 });
 
 // Delete a point entry by ID
-pointRouter.delete('/points/:id', async (req, res) => {
+allRoutes.delete('/points/:id', authenticateJWT, async (req, res) => {
     try {
         const point = await Points.findByIdAndDelete(req.params.id);
 
@@ -128,4 +150,4 @@ pointRouter.delete('/points/:id', async (req, res) => {
     }
 });
 
-export default pointRouter;
+export default allRoutes;
